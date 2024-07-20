@@ -2,7 +2,11 @@
 <html lang="en" class="fullscreen-bg">
 
 <head>
+<<<<<<< HEAD
     <title>Login | AP2 Inventory ATK</title>
+=======
+    <title>Login | AP2 Inventory</title>
+>>>>>>> 6b87ca04d4d4ec198042337f445c8e0e25ba7b05
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
