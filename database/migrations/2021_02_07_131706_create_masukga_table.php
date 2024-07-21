@@ -16,7 +16,7 @@ class CreateMasukgaTable extends Migration
         Schema::create('masukga', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('barangga_id');
+            $table->string('barang_id');
             $table->integer('jumlahmasuk');
             $table->date('tanggalmasuk');
         });

@@ -54,18 +54,18 @@
                         {{-- <td><a href="#" data-nama="{{$barang->nama}}" data-image="{{$barang->getGambar()}}"
                                 data-toggle="modal" data-target="#modalgambar">{{$barang->nama}}</a>
                         </td> --}}
-                        <td>{{$barang->barangga->kodebarang}}</td>
-                        <td>{{$barang->barangga->namabarang}}</td>
+                        <td>{{$barang->barang->kodebarang}}</td>
+                        <td>{{$barang->barang->namabarang}}</td>
                         <td>{{$barang->tanggalmasuk}}</td>
                         <td>{{$barang->jumlahmasuk}}</td>
                         <td>
                             <a href="/masukga/{{$barang->id}}/edit" class="btn btn-warning btn-sm"><i
                                     class="lnr lnr-pencil"></i></a>
                             {{-- <button type="button" data-toggle="modal" data-target="#editmodalbarangmasuk"
-                            data-barangga_id="{{$barang->barangga_id}}" data-id="{{$barang->id}}" data-tanggalmasuk="{{$barang->tanggalmasuk}}" data-jumlahmasuk="{{$barang->jumlahmasuk}}"
+                            data-barang_id="{{$barang->barang_id}}" data-id="{{$barang->id}}" data-tanggalmasuk="{{$barang->tanggalmasuk}}" data-jumlahmasuk="{{$barang->jumlahmasuk}}"
                             class="btn btn-warning btn-sm"><i class="lnr lnr-pencil"></i></button> --}}
                             <a href="/masukga/{{$barang->id}}/delete" class="btn btn-danger btn-sm"
-                                onclick="return confirm('Yakin ingin menghapus {{$barang->barangga->namabarang}} yang masuk tanggal {{$barang->tanggalmasuk}}?')"><i
+                                onclick="return confirm('Yakin ingin menghapus {{$barang->barang->namabarang}} yang masuk tanggal {{$barang->tanggalmasuk}}?')"><i
                                     class="lnr lnr-trash"></i></a>
                         </td>
                     </tr>
@@ -93,10 +93,10 @@
                 {{csrf_field()}}
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="barangga_id">Nama Barang</label>
-                        <select name="barangga_id" class="form-control" id="barangga_id">
-                            @foreach ($barangga as $brg)
-                            <option value="{{$brg->id}}" {{(old('barangga_id') == $brg->id ? 'selected' : '')}}>
+                        <label for="barang_id">Nama Barang</label>
+                        <select name="barang_id" class="form-control" id="barang_id">
+                            @foreach ($barang as $brg)
+                            <option value="{{$brg->id}}" {{(old('barang_id') == $brg->id ? 'selected' : '')}}>
                                 {{$brg->namabarang}}
                             </option>
                             @endforeach

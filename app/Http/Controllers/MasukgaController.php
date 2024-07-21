@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\barangga;
+use App\barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
@@ -18,20 +18,20 @@ class MasukgaController extends Controller
         if ($request->has('tanggalawalmasuk')) {
             $tanggalawal = $request->tanggalawalmasuk;
             $tanggalakhir = $request->tanggalakhirmasuk;
-            $barangga = \App\barangga::all();
+            $barang = barang::all();
             $barangmasuk = masukga::whereBetween('tanggalmasuk', [$tanggalawal, $tanggalakhir])->orderbyDesc('tanggalmasuk')->paginate(20);
         } else {
             $barangmasuk = \App\masukga::orderbyDesc('tanggalmasuk')->paginate(20);
             // $lokasi_barang = \App\lokasi::all();
-            $barangga = barangga::all();
+            $barang = barang::all();
         }
-        return view('masukga.index', ['barangmasuk' => $barangmasuk, 'barangga' => $barangga]);
+        return view('masukga.index', ['barangmasuk' => $barangmasuk, 'barang' => $barang]);
     }
 
     public function create(Request $request)
     {
         $this->validate($request, [
-            'barangga_id' => 'required',
+            'barang_id' => 'required',
             'jumlahmasuk' => 'required|integer',
             'tanggalmasuk' => 'required'
         ]);
@@ -43,16 +43,16 @@ class MasukgaController extends Controller
     public function edit($id)
     {
         $barangmasuk = \App\masukga::find($id);
-        $barangga = barangga::all();
+        $barang = barang::all();
         //$lokasi_barang = \App\lokasi::all();
-        return view('masukga/edit', ['barangmasuk' => $barangmasuk, 'barangga' => $barangga]);
+        return view('masukga/edit', ['barangmasuk' => $barangmasuk, 'barang' => $barang]);
     }
 
     public function update(Request $request, $id)
     {
         $barang = \App\masukga::find($id);
         $this->validate($request, [
-            'barangga_id' => 'required',
+            'barang_id' => 'required',
             'jumlahmasuk' => 'required|integer',
             'tanggalmasuk' => 'required'
         ]);
@@ -76,8 +76,8 @@ class MasukgaController extends Controller
     {
         $barangmasuk = masukga::all();
         // $lokasi_barang = \App\lokasi::all();
-        $barangga = barangga::all();
-        $pdf = PDF::loadView('exports.masukpdf', ['barangmasuk' => $barangmasuk, 'barangga' => $barangga]);
+        $barang = barang::all();
+        $pdf = PDF::loadView('exports.masukpdf', ['barangmasuk' => $barangmasuk, 'barang' => $barang]);
         return $pdf->download('ATK masuk.pdf');
     }
 }

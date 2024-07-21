@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\barang;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use App\Exports\DaftarExport;
@@ -16,12 +17,12 @@ class DaftarController extends Controller
     public function index(Request $request)
     {
         if ($request->has('cari')) {
-            $inventory_barang = \App\barangga::where("namabarang", "LIKE", "%" . $request->cari . "%")->orWhere("kodebarang", "LIKE", "%" . $request->cari . "%")->orderBy('namabarang')->paginate();
+            $inventory_barang = barang::where("namabarang", "LIKE", "%" . $request->cari . "%")->orWhere("kodebarang", "LIKE", "%" . $request->cari . "%")->orderBy('namabarang')->paginate();
             $barangmasuk = masukga::all();
             $barangkeluar = keluarga::all();
             // ->orwhere("gudang", "LIKE", "%" . $request->cari . "%")
         } else {
-            $inventory_barang = \App\barangga::orderBy('namabarang')->paginate(20);
+            $inventory_barang = barang::orderBy('namabarang')->paginate(20);
             $barangmasuk = masukga::all();
             $barangkeluar = keluarga::all();
         }
@@ -36,7 +37,7 @@ class DaftarController extends Controller
 
     public function exportPDF()
     {
-        $inventory_barang = \App\barangga::all();
+        $inventory_barang = barang::all();
         $barangmasuk = masukga::all();
         $barangkeluar = keluarga::all();
 

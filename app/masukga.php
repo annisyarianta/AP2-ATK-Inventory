@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class masukga extends Model
 {
     protected $table = 'masukga';
-    protected $fillable = ['barangga_id', 'jumlahmasuk', 'tanggalmasuk'];
+    protected $fillable = ['barang_id', 'jumlahmasuk', 'tanggalmasuk'];
 
-    public function barangga()
+    public function barang()
     {
-        return $this->belongsTo(barangga::class);
+        return $this->belongsTo(barang::class);
     }
 }

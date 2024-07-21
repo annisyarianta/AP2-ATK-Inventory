@@ -42,8 +42,8 @@
             @foreach ($barangmasuk->sortby('tanggalmasuk') as $barang) <?php $no++; ?>
                 <tr>
                     <td scope="row"><?= $no; ?></td>
-                    <td>{{$barang->barangga->kodebarang}}</td>
-                    <td>{{$barang->barangga->namabarang}}</td>
+                    <td>{{$barang->barang->kodebarang}}</td>
+                    <td>{{$barang->barang->namabarang}}</td>
                     <td>{{$barang->tanggalmasuk}}</td>
                     <td>{{$barang->jumlahmasuk}}</td>
                 </tr>

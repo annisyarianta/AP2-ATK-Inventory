@@ -13,10 +13,10 @@
                 <form id="aksi" action="/keluarga/{{$barangkeluar->id}}/update" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <label for="barangga_id">Nama Barang</label>
-                        <select name="barangga_id" class="form-control" id="barangga_id">
-                            @foreach ($barangga as $brg)
-                            <option value="{{$brg->id}}" @if ($barangkeluar->barangga_id == $brg->id)
+                        <label for="barang_id">Nama Barang</label>
+                        <select name="barang_id" class="form-control" id="barang_id">
+                            @foreach ($barang as $brg)
+                            <option value="{{$brg->id}}" @if ($barangkeluar->barang_id == $brg->id)
                                 selected
                                 @endif>
                                 {{$brg->namabarang}}

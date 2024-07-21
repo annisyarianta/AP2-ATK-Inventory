@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class keluarga extends Model
 {
     protected $table = 'keluarga';
-    protected $fillable = ['barangga_id', 'jumlahkeluar', 'tanggalkeluar', 'unit_id'];
+    protected $fillable = ['barang_id', 'jumlahkeluar', 'tanggalkeluar', 'unit_id'];
 
-    public function barangga()
+    public function barang()
     {
-        return $this->belongsTo(barangga::class);
+        return $this->belongsTo(barang::class);
     }
 
     public function unit()

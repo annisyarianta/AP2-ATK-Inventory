@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\barangga;
+use App\barang;
 use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Contracts\View\View;
 use App\masukga;
@@ -34,18 +34,18 @@ class LaporanExport implements FromView
     public function view(): View
     {
         if ($this->jenislaporan == "barangmasuk") {
-            $barangga = barangga::all();
+            $barang = barang::all();
             $tanggalawal = $this->tanggalawal;
             $tanggalakhir = $this->tanggalakhir;
             $barangmasuk = masukga::query()->whereBetween('tanggalmasuk', [$tanggalawal, $tanggalakhir])->get();
-            return view('exports.masukexcel', ['barangmasuk' => $barangmasuk, 'barangga' => $barangga]);
+            return view('exports.masukexcel', ['barangmasuk' => $barangmasuk, 'barang' => $barang]);
             // ->orwhere("gudang", "LIKE", "%" . $request->cari . "%")
         } else if ($this->jenislaporan == "barangkeluar") {
-            $barangga = \App\barangga::all();
+            $barang = barang::all();
             $tanggalawal = $this->tanggalawal;
             $tanggalakhir = $this->tanggalakhir;
             $barangkeluar = keluarga::query()->whereBetween('tanggalkeluar', [$tanggalawal, $tanggalakhir])->get();
-            return view('exports.keluarexcel', ['barangga' => $barangga, 'barangkeluar' => $barangkeluar]);
+            return view('exports.keluarexcel', ['barang' => $barang, 'barangkeluar' => $barangkeluar]);
         }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\barang;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use App\keluarga;
 use App\masukga;
@@ -20,7 +21,7 @@ class DaftarExport implements FromView
 
     public function view(): View
     {
-        $inventory_barang = \App\barangga::all();
+        $inventory_barang = barang::all();
         $barangmasuk = masukga::all();
         $barangkeluar = keluarga::all();
 
