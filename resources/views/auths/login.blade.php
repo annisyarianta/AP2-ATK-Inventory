@@ -2,7 +2,7 @@
 <html lang="en" class="fullscreen-bg">
 
 <head>
-    <title>Login | AP2 Inventory ATK</title>
+    <title>Login | ATK Inventory</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -31,9 +31,9 @@
                     <div class="left">
                         <div class="content">
                             <div class="header">
-                                <div class="logo text-center"><img style="height: 120px"
+                                <div class="logo text-center"><img style="height: 130px"
                                         src="{{ asset('assets/img/Radin Inten II Logo crop.png') }}"
-                                        alt="Klorofil Logo">
+                                        alt="Logo Radin Inten II">
                                 </div>
                                 {{-- <p class="lead">Login</p> --}}
                             </div>
@@ -66,8 +66,8 @@
                     <div class="right">
                         <div class="overlay"></div>
                         <div class="content text">
-                            <h1 class="heading">Sistem Inventory ATK</h1>
-                            <p>Bandara Radin Inten II Lampung</p>
+                            <h1 class="heading" style="font-size: 40px; font-weight: 600">ATK Inventory System</h1>
+                            <p style="font-size: 25px; font-weight: 400">Bandara Radin Inten II Lampung</p>
                         </div>
                     </div>
                     <div class="clearfix"></div>
