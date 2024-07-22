@@ -2,7 +2,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-            <img class="img-fluid" style="max-width: 40px" src="img/logoAP-title.png" alt="" />
+            <img class="img-fluid" style="max-width: 35px" src="img/logoAP-title.png" alt="" />
         </div>
         <div class="sidebar-brand-text mx-3" style="font-size: 1rem">
             PT Angkasa Pura II
