@@ -16,6 +16,7 @@
         <!-- MAIN CSS -->
         {{-- <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}"> --}}
         <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet" />
+        <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
         <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
         {{-- <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}"> --}}
         <!-- GOOGLE FONTS -->
@@ -98,6 +99,9 @@
         <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
         <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
         <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
+        <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 
         <script>
             $('#modalgambar').on('show.bs.modal', function(event) {
