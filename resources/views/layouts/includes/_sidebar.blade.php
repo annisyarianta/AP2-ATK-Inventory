@@ -13,7 +13,7 @@
     <hr class="sidebar-divider my-0" />
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="/dashboardatk">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -36,14 +36,14 @@
     <!-- Nav Item - Barang Masuk -->
     <li class="nav-item">
         <a class="nav-link" href="/masukga">
-            <i class="fas fa-fw fa-sign-in-alt"></i>
+            <i class="fas fa-fw fa-download"></i>
             <span>Barang Masuk</span></a>
     </li>
 
     <!-- Nav Item - Barang Keluar -->
     <li class="nav-item">
         <a class="nav-link" href="/keluarga">
-            <i class="fas fa-fw fa-sign-out-alt"></i>
+            <i class="fas fa-fw fa-upload"></i>
             <span>Barang Keluar</span></a>
     </li>
 

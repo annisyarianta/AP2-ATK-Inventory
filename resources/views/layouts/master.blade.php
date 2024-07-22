@@ -234,10 +234,21 @@
 
             $(function() {
                 var current = location.pathname;
-                $('.nav li a').each(function() {
+                $('.nav-link').each(function() {
                     var $this = $(this);
                     // if the current path is like this link, make it active
-                    if ($this.attr('href').indexOf(current) !== -1) {
+                    if ($this.attr('href') === current) {
+                        $this.addClass('active');
+                    }
+                })
+            })
+
+            $(function() {
+                var current = location.pathname;
+                $('.collapse-item').each(function() {
+                    var $this = $(this);
+                    // if the current path is like this link, make it active
+                    if ($this.attr('href') === current) {
                         $this.addClass('active');
                     }
                 })
