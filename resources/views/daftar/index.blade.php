@@ -21,10 +21,10 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-end">
-                <a href="/daftar/exportpdf" class="btn btn-danger btn-icon-split mr-2">
+                <a href="/daftar/exportpdf" class="btn btn-danger btn-icon-split btn-sm mr-2">
                     <span class="text">Export PDF</span>
                 </a>
-                <a href="/daftar/exportexcel" class="btn btn-success btn-icon-split">
+                <a href="/daftar/exportexcel" class="btn btn-success btn-icon-split btn-sm">
                     <span class="text">Export Excel</span>
                 </a>
             </div>
