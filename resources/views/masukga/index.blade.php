@@ -23,57 +23,88 @@
                     aria-hidden="true">×</span></button>
         </div>
     @endif
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3 class="panel-title">BARANG MASUK</h3>
-                    <div class="right">
-                        <a href="/masukga/exportpdfmasuk" class="btn btn-danger btn-sm">Export PDF</a>
-                        <a href="/masukga/exportexcelmasuk" class="btn btn-success btn-sm">Export Excel</a>
-                        <a href="#" class="btn btn-primary btn-sm" data-toggle="modal"
-                            data-target="#tambahmasuk">Tambah Data</a>
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <h1 class="h2 mb-2 text-gray-800" style="font-weight: 600">Barang Masuk</h1>
+        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+            For more information about DataTables, please visit the official DataTables documentation.</p>
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex justify-content-end">
+                <a href="/barang/exportpdfmasuk" class="btn btn-danger mr-2">
+                    <span class="text">Export PDF</span>
+                </a>
+                <a href="/barang/exportexcelmasuk" class="btn btn-success mr-2">
+                    <span class="text">Export Excel</span>
+                </a>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#tambahmasuk">
+                    <span class="text">Tambah Data</span>
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting sorting_asc text-center" tabindex="0"
+                                                aria-controls="dataTable" rowspan="1" colspan="1"
+                                                aria-label="No.: activate to sort column descending" aria-sort="ascending"
+                                                style="width: 10px;">No.</th>
+                                            <th class="sorting text-xl-center" tabindex="0" aria-controls="dataTable"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Kode Barang: activate to sort column ascending"
+                                                style="width: 50px;">Kode Barang</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Nama Barang: activate to sort column ascending"
+                                                style="width: 200px;">Nama Barang</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Tanggal Barang Masuk: activate to sort column ascending"
+                                                style="width: 100px;">Tanggal Barang Masuk</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Jumlah Barang Masuk: activate to sort column ascending"
+                                                style="width: 50px;">Jumlah Barang Masuk</th>
+                                            <th class="text-center" style="width: 62.2px;">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <?php $no = $barangmasuk->currentPage() * $barangmasuk->perPage() - $barangmasuk->perPage(); ?>
+                                    @foreach ($barangmasuk as $barang)
+                                        <?php $no++; ?>
+                                        <tr>
+                                            <td scope="row" class="text-center"><?= $no ?></td>
+                                            {{-- <td><a href="inventory/{{$barang->id}}/profil">{{$barang->nama}}</td></a> --}}
+                                            {{-- <td><a href="#" data-nama="{{$barang->nama}}" data-image="{{$barang->getGambar()}}"
+                                                data-toggle="modal" data-target="#modalgambar">{{$barang->nama}}</a>
+                                        </td> --}}
+                                            <td>{{ $barang->barang->kodebarang }}</td>
+                                            <td>{{ $barang->barang->namabarang }}</td>
+                                            <td>{{ $barang->tanggalmasuk }}</td>
+                                            <td>{{ $barang->jumlahmasuk }}</td>
+                                            <td class="text-center">
+                                                <a href="/masukga/{{ $barang->id }}/edit"
+                                                    class="btn btn-warning btn-circle mr-1"><i
+                                                        class="fas fa-pencil=alt"></i></a>
+                                                {{-- <button type="button" data-toggle="modal" data-target="#editmodalbarangmasuk"
+                                            data-barang_id="{{$barang->barang_id}}" data-id="{{$barang->id}}" data-tanggalmasuk="{{$barang->tanggalmasuk}}" data-jumlahmasuk="{{$barang->jumlahmasuk}}"
+                                            class="btn btn-warning btn-sm"><i class="lnr lnr-pencil"></i></button> --}}
+                                                <a href="/masukga/{{ $barang->id }}/delete"
+                                                    class="btn btn-danger btn-circle"
+                                                    onclick="return confirm('Yakin ingin menghapus {{ $barang->barang->namabarang }} yang masuk tanggal {{ $barang->tanggalmasuk }}?')"><i
+                                                        class="fas fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                                {{ $barangmasuk->links() }}
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="panel-body">
-                    <table class="table table-hover">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>No.</th>
-                                <th>Kode Barang</th>
-                                <th>Nama Barang</th>
-                                <th>Tanggal Barang Masuk</th>
-                                <th>Jumlah Barang Masuk</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <?php $no = $barangmasuk->currentPage() * $barangmasuk->perPage() - $barangmasuk->perPage(); ?>
-                        @foreach ($barangmasuk as $barang)
-                            <?php $no++; ?>
-                            <tr>
-                                <td scope="row"><?= $no ?></td>
-                                {{-- <td><a href="inventory/{{$barang->id}}/profil">{{$barang->nama}}</td></a> --}}
-                                {{-- <td><a href="#" data-nama="{{$barang->nama}}" data-image="{{$barang->getGambar()}}"
-                                data-toggle="modal" data-target="#modalgambar">{{$barang->nama}}</a>
-                        </td> --}}
-                                <td>{{ $barang->barang->kodebarang }}</td>
-                                <td>{{ $barang->barang->namabarang }}</td>
-                                <td>{{ $barang->tanggalmasuk }}</td>
-                                <td>{{ $barang->jumlahmasuk }}</td>
-                                <td>
-                                    <a href="/masukga/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i
-                                            class="lnr lnr-pencil"></i></a>
-                                    {{-- <button type="button" data-toggle="modal" data-target="#editmodalbarangmasuk"
-                            data-barang_id="{{$barang->barang_id}}" data-id="{{$barang->id}}" data-tanggalmasuk="{{$barang->tanggalmasuk}}" data-jumlahmasuk="{{$barang->jumlahmasuk}}"
-                            class="btn btn-warning btn-sm"><i class="lnr lnr-pencil"></i></button> --}}
-                                    <a href="/masukga/{{ $barang->id }}/delete" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Yakin ingin menghapus {{ $barang->barang->namabarang }} yang masuk tanggal {{ $barang->tanggalmasuk }}?')"><i
-                                            class="lnr lnr-trash"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                    {{ $barangmasuk->links() }}
                 </div>
             </div>
         </div>
@@ -87,8 +118,8 @@
                 <div class="modal-header">
                     <h3 id="exampleModalLabel">Tambah Data Barang Masuk</h3>
                     {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button> --}}
+                <span aria-hidden="true">&times;</span>
+            </button> --}}
                 </div>
 
                 <form action="/masukga/create" method="POST" enctype="multipart/form-data">
