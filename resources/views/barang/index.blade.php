@@ -22,13 +22,13 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-end">
-                <a href="/barang/exportpdfbarang" class="btn btn-danger btn-icon-split btn-sm mr-2">
+                <a href="/barang/exportpdfbarang" class="btn btn-danger mr-2">
                     <span class="text">Export PDF</span>
                 </a>
-                <a href="/barang/exportexcelbarang" class="btn btn-success btn-icon-split btn-sm mr-2">
+                <a href="/barang/exportexcelbarang" class="btn btn-success mr-2">
                     <span class="text">Export Excel</span>
                 </a>
-                <a href="#" class="btn btn-primary btn-icon-split btn-sm" data-toggle="modal"
+                <a href="#" class="btn btn-primary" data-toggle="modal"
                     data-target="#exampleModal">
                     <span class="text">Tambah Data</span>
                 </a>
